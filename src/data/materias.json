@@ -1,0 +1,63 @@
+[
+    {
+        "CLAVE MATERIA": "F1002B",
+        "GRUPO": "202",
+        "NOMBRE": "Modelación del movimiento en bioingeniería y procesos químicos",
+        "DIAS": ["Mon","Wed","Thu"],
+        "HORA_INICIO": 7,
+        "HORA_FIN": 11,
+        "FECHA_INICIO": "Sep 19 2022",
+        "FECHA_FIN": "Oct 21 2022",
+        "AULA": "PUE-A2-504",
+        "PROFEESOR": ["Alain Flores Tlalpa", "Azucena Bolaños Carrera", "Bernardo Olivares Avalos"]
+    },
+    {
+        "CLAVE MATERIA": "F1003B",
+        "GRUPO": "302",
+        "NOMBRE": "Aplicación de las leyes de conservación en ingeniería de procesos",
+        "DIAS": ["Mon","Wed","Thu"],
+        "HORA_INICIO": 7,
+        "HORA_FIN": 11,
+        "FECHA_INICIO": "Aug 8 2022",
+        "FECHA_FIN": "Sep 9 2022",
+        "AULA": "PUE-A2-313",
+        "PROFEESOR": ["Anette Gisela Botello Ojeda", "Debbie Crystal Hernández Zarate", "Juan Manuel Martínez Huerta"]
+    },
+    {
+        "CLAVE MATERIA": "BT1013",
+        "GRUPO": "853-PUE",
+        "NOMBRE": "Análisis de biología computacional",
+        "DIAS": ["Mon","Thu"],
+        "HORA_INICIO": 17,
+        "HORA_FIN": 19,
+        "FECHA_INICIO": "Sep 19 2022",
+        "FECHA_FIN": "Oct 21 2022",
+        "AULA": "PUE-A2-313",
+        "PROFEESOR": ["Juan Gerardo Cantú de la Garza"]
+    },
+    {
+        "CLAVE MATERIA": "MA1033",
+        "GRUPO": "102",
+        "NOMBRE": "Análisis de ecuaciones diferenciales",
+        "DIAS": ["Mon","Thu"],
+        "HORA_INICIO": 17,
+        "HORA_FIN": 19,
+        "FECHA_INICIO": "Aug 8 2022",
+        "FECHA_FIN": "Sep 9 2022",
+        "AULA": "PUE-A2-213",
+        "PROFEESOR": ["Orlando Epifanio González Pérez"]
+    },
+    {
+        "CLAVE MATERIA": "TI1015",
+        "GRUPO": "301",
+        "NOMBRE": "Análisis de requerimientos de software",
+        "DIAS": ["Tue","Fri"],
+        "HORA_INICIO": 9,
+        "HORA_FIN": 11,
+        "FECHA_INICIO": "Sep 19 2022",
+        "FECHA_FIN": "Oct 21 2022",
+        "AULA": "PUE-A2-405",
+        "PROFEESOR": ["Claudia Verónica Pérez Lezama"]
+    }
+
+]
