@@ -27,7 +27,7 @@ function App() {
   if(user != null){
     if(user["email"].split("@")[1] == "tec.mx"){
       return (
-        <Home url={user["photoURL"]} auth={auth}></Home>
+        <Home url={user["photoURL"]} auth={auth} user={user}></Home>
       );
     }else{
       return(

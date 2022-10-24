@@ -4,15 +4,21 @@ import 'react-calendar/dist/Calendar.css';
 import Card from '../components/Card';
 import Topbar from '../components/Topbar';
 import materias from "../data/materias.json" 
+import alumnos from "../data/alumnos.json"
 import filter from '../scripts/filter';
 
 export default function Home(props) {
+  const alumnoSesion = alumnos.find(o => o.MATRICULA === props.user["email"].split("@")[0])
+  let alumnoMaterias = []
+  for(let i = 0; i < alumnoSesion["MATERIAS"].length; i++){
+    alumnoMaterias.push(materias.find(o => o["CLAVE MATERIA"] === alumnoSesion["MATERIAS"][i]))
+  }
   const [value, onChange] = useState(new Date());
-  const [vals, setVals] = useState(filter(materias,value))
+  const [vals, setVals] = useState(filter(alumnoMaterias,value))
 
   function handleCalendarChange(e){
     onChange(e)
-    setVals(filter(materias,e))
+    setVals(filter(alumnoMaterias,e))
   }
   
   
@@ -20,9 +26,11 @@ export default function Home(props) {
     <Card materia={val["NOMBRE"]} clave={val["CLAVE MATERIA"]} grupo={val["GRUPO"]} aula={val["AULA"]}></Card>
   );
 
+
   return (
     <div className='home'>
       <Topbar url={props.url} auth={props.auth}></Topbar>
+      <h1>Bienvenido {props.user["displayName"].split(" ")[0]}</h1>
       <Calendar onChange={handleCalendarChange} value={value} />
       {cards}
     </div>
