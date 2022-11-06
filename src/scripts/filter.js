@@ -53,8 +53,8 @@ export default function filter(arr,date){
 
     //Agarrar todas las materias que toquen ese día de la semana (Lunes, Martes, Miercoles...)
     for(let i = 0; i< arr.length; i++){
-        for(let j = 0; j< arr[i]["DIAS"].length; j++){
-            if(date.toString().includes(arr[i]["DIAS"][j])){
+        for(let j = 0; j< arr[i]["DAY_LIST"].length; j++){
+            if(date.toString().includes(arr[i]["DAY_LIST"][j])){
                 newArr.push(arr[i])
                 break
             }
@@ -64,7 +64,7 @@ export default function filter(arr,date){
     //Quedarte solo con las materias en las que el año sea igual
     //HAY UN BUG AQUÍ
     for(let i = 0; i< newArr.length; i++){
-        if(date.toString().split(" ")[3] != newArr[i]["FECHA_INICIO"].split(" ")[2]){
+        if(date.toString().split(" ")[3] != newArr[i]["START_DATE"].split(" ")[2]){
             newArr.splice(i,1)
         }
     }
@@ -73,9 +73,10 @@ export default function filter(arr,date){
     
     let monthNum = months.find(o => o.month === date.toString().split(" ")[1])["number"]
     for(let j = 0; j< newArr.length; j++){
-        let monthStart = months.find(o => o.month === newArr[j]["FECHA_INICIO"].split(" ")[0])["number"]
-        let monthEnd = months.find(o => o.month === newArr[j]["FECHA_FIN"].split(" ")[0])["number"]
+        let monthStart = months.find(o => o.month === newArr[j]["START_DATE"].split(" ")[0])["number"]
+        let monthEnd = months.find(o => o.month === newArr[j]["END_DATE"].split(" ")[0])["number"]
 
+        
         if(monthNum < monthStart || monthNum > monthEnd){
             newArr.splice(j,1)
         }
@@ -84,10 +85,10 @@ export default function filter(arr,date){
     //Quedarte solo con las materias que estén en el rango de días (dentro del mes seleccionado, ver si la materia termina ese mes)
     //SE PASA POR UNA SEMANA
     for(let k = 0; k< newArr.length; k++){
-        let monthStart = months.find(o => o.month === newArr[k]["FECHA_INICIO"].split(" ")[0])["number"]
-        let monthEnd = months.find(o => o.month === newArr[k]["FECHA_FIN"].split(" ")[0])["number"]
-        let startDay = newArr[k]["FECHA_INICIO"].split(" ")[1]
-        let endDay = newArr[k]["FECHA_FIN"].split(" ")[1]
+        let monthStart = months.find(o => o.month === newArr[k]["START_DATE"].split(" ")[0])["number"]
+        let monthEnd = months.find(o => o.month === newArr[k]["END_DATE"].split(" ")[0])["number"]
+        let startDay = newArr[k]["START_DATE"].split(" ")[1]
+        let endDay = newArr[k]["END_DATE"].split(" ")[1]
 
         if(monthNum == monthStart){
             if(parseInt(date.toString().split(" ")[2]) < startDay){

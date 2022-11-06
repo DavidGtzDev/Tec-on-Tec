@@ -4,6 +4,8 @@ import { initializeApp } from "firebase/app";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import Login from './views/Login';
 
+
+
 const firebaseConfig = {
   apiKey: "AIzaSyDPLFR9IrJObMp8ltBsqjatf2g5LO7fPsw",
   authDomain: "tec-on-tec.firebaseapp.com",
@@ -16,6 +18,7 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app)
+
 
 function App() {
   const [user, setUser] = useState(null);

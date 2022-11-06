@@ -4,26 +4,34 @@ import 'react-calendar/dist/Calendar.css';
 import Card from '../components/Card';
 import Topbar from '../components/Topbar';
 import materias from "../data/materias.json" 
-import alumnos from "../data/alumnos.json"
 import filter from '../scripts/filter';
 
 export default function Home(props) {
-  const alumnoSesion = alumnos.find(o => o.MATRICULA === props.user["email"].split("@")[0])
-  let alumnoMaterias = []
-  for(let i = 0; i < alumnoSesion["MATERIAS"].length; i++){
-    alumnoMaterias.push(materias.find(o => o["CLAVE MATERIA"] === alumnoSesion["MATERIAS"][i]))
-  }
+  const alumnoSesion = props.user["email"].split("@")[0]
+
   const [value, onChange] = useState(new Date());
-  const [vals, setVals] = useState(filter(alumnoMaterias,value))
+  const [vals, setVals] = useState(filter(materias,value))
+
+  const consumeAPI = async() => {
+    let url = "https://tec-on-tec.herokuapp.com/api/v1/courses/by-semester?user_id=" + alumnoSesion
+    const response = await fetch(url)
+    const json = await response.json()
+   console.log(json)
+  }
+
+  useEffect(() => {
+    consumeAPI()
+  })
+  
 
   function handleCalendarChange(e){
     onChange(e)
-    setVals(filter(alumnoMaterias,e))
+    setVals(filter(materias,e))
   }
   
   
   const cards = vals.map((val) =>
-    <Card materia={val["NOMBRE"]} clave={val["CLAVE MATERIA"]} grupo={val["GRUPO"]} aula={val["AULA"]}></Card>
+    <Card materia={val["NAME"]} clave={val["CODE"]} grupo={val["START_TIME"]} aula={val["CLASSROOM"]}></Card>
   );
 
 
