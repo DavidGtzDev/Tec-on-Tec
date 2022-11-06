@@ -1,7 +1,7 @@
 import React, { useState , useEffect} from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
-import Card from '../components/Card';
+import CardUser from '../components/CardUser';
 import Topbar from '../components/Topbar';
 import materias from "../data/materias.json" 
 import filter from '../scripts/filter';
@@ -31,16 +31,22 @@ export default function Home(props) {
   
   
   const cards = vals.map((val) =>
-    <Card materia={val["NAME"]} clave={val["CODE"]} grupo={val["START_TIME"]} aula={val["CLASSROOM"]}></Card>
+    <CardUser obj={val}></CardUser>
   );
 
 
   return (
     <div className='home'>
       <Topbar url={props.url} auth={props.auth}></Topbar>
-      <h1>Bienvenido {props.user["displayName"].split(" ")[0]}</h1>
+      {/* 
+      <div className='title-contain'>
+        <h1 className='title-home'>Bienvenido {props.user["displayName"].split(" ")[0]}</h1>
+      </div>
+      */} 
       <Calendar onChange={handleCalendarChange} value={value} />
-      {cards}
+      <div className='c-container'>
+        {cards}
+      </div>
     </div>
   )
 }
