@@ -35,3 +35,11 @@ body{
     flex-wrap: wrap;
     justify-content: space-around;
 }
+
+.react-calendar__month-view__weekdays__weekday > abbr{
+    text-decoration: none;
+}
+
+.react-calendar__tile react-calendar__month-view__days__day react-calendar__month-view__days__day--weekend > abbr{
+    color: blue;
+}

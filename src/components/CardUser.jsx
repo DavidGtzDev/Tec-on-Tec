@@ -7,6 +7,7 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import "../styles/card.css"
+import {QRCodeSVG} from 'qrcode.react';
 
 export default function CardUser(props) {
   let images = ["https://payload.cargocollective.com/1/6/222271/10585229/pattern-c_800.jpg","https://i.pinimg.com/originals/b0/27/db/b027dbf5efb3e939bcd03e46b5d39afc.jpg","https://i.etsystatic.com/13787576/r/il/92f95d/3261081855/il_fullxfull.3261081855_i5ht.jpg","https://media.graphassets.com/JBvG8dAPR7yNGL1dB4QX","https://media.graphassets.com/V9q4iS88TaiiBDDkmPkE","https://d30g5rxy3ee0r1.cloudfront.net/wp-content/uploads/2018/03/8708207_by_LAYLA95353_9e5515ebbecc7c7b7df1078a42b7c9fb-nautical-design-pretty-patterns-450x450.jpg","https://susanbranch.com/wp-content/uploads/2018/04/Print2-500x334.jpg"]
@@ -42,16 +43,12 @@ export default function CardUser(props) {
             Salón: {props.obj["CLASSROOM"]} <br></br>
             Profesor: {props.obj["PROFESSOR_LIST"][0]} <br></br>
           </Typography>
+          <br></br>
+          <div style={{display: "flex", justifyContent: "center"}}>
+            <QRCodeSVG value="https://reactjs.org/" />
+          </div>
         </AccordionDetails>
       </Accordion>
     </Card>
   )
 }
-/* 
-    <div className='card'>
-        <h1>{props.materia}</h1>
-        <p>{props.clave}</p>
-        <p>{props.grupo}</p>
-        <p>{props.aula}</p>
-    </div>
-*/ 
