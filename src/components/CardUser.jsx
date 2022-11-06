@@ -42,6 +42,8 @@ export default function CardUser(props) {
             Clave: {props.obj["CODE"]} <br></br>
             Salón: {props.obj["CLASSROOM"]} <br></br>
             Profesor: {props.obj["PROFESSOR_LIST"][0]} <br></br>
+            Contacto:  
+            <a href = {"mailto:" + props.obj["MAIL_LIST"][0]}> {props.obj["MAIL_LIST"][0]}</a>
           </Typography>
           <br></br>
           <div style={{display: "flex", justifyContent: "center"}}>

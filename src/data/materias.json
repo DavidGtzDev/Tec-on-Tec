@@ -9,7 +9,8 @@
     "START_DATE": "Aug 8 2022",
     "END_DATE": "Sep 9 2022",
     "CLASSROOM": "E-ED01 1211",
-    "PROFESSOR_LIST": ["Jorge Alberto Venzor Valdivia"]
+    "PROFESSOR_LIST": ["Jorge Alberto Venzor Valdivia"],
+    "MAIL_LIST": ["jorgevenzor@tec.mx"]
   },
   {
     "CRN": "5360",
@@ -21,7 +22,8 @@
     "START_DATE": "Aug 8 2022",
     "END_DATE": "Sep 9 2022",
     "CLASSROOM": "E-ED01 1211",
-    "PROFESSOR_LIST": ["Jesús Carlos Meraz Molina"]
+    "PROFESSOR_LIST": ["Jesús Carlos Meraz Molina"],
+    "MAIL_LIST": ["jmeraz@tec.mx"]
   },
   {
     "CRN": "5350",
@@ -33,7 +35,8 @@
     "START_DATE": "Aug 8 2022",
     "END_DATE": "Oct 21 2022",
     "CLASSROOM": "E-ED01 1223",
-    "PROFESSOR_LIST": ["Raime Alejandro Bustos Gardea"]
+    "PROFESSOR_LIST": ["Raime Alejandro Bustos Gardea"],
+    "MAIL_LIST": ["raime@tec.mx"]
   },
   {
     "CRN": "5342",
@@ -45,7 +48,8 @@
     "START_DATE": "Aug 8 2022",
     "END_DATE": "Dec 2 2022",
     "CLASSROOM": "E-ED01 1211",
-    "PROFESSOR_LIST": ["Jorge Alberto Venzor Valdivia"]
+    "PROFESSOR_LIST": ["Jorge Alberto Venzor Valdivia"],
+    "MAIL_LIST": ["jorgevenzor@tec.mx"]
   },
   {
     "CRN": "5416",
@@ -57,7 +61,8 @@
     "START_DATE": "Aug 8 2022",
     "END_DATE": "Dec 2 2022",
     "CLASSROOM": "E-ED01 1105",
-    "PROFESSOR_LIST": ["Ana Gabriela Delgado Macías"]
+    "PROFESSOR_LIST": ["Ana Gabriela Delgado Macías"],
+    "MAIL_LIST": ["gabydelgado@tec.mx"]
   },
   {
     "CRN": "5291",
@@ -69,7 +74,8 @@
     "START_DATE": "Sep 12 2022",
     "END_DATE": "Sep 16 2022",
     "CLASSROOM": "E-ED01 1203",
-    "PROFESSOR_LIST": ["Elías Solís Rivera"]
+    "PROFESSOR_LIST": ["Elías Solís Rivera"],
+    "MAIL_LIST": ["eliasrivera@tec.mx"]
   },
   {
     "CRN": "5340",
@@ -81,7 +87,8 @@
     "START_DATE": "Sep 19 2022",
     "END_DATE": "Oct 21 2022",
     "CLASSROOM": "E-ED01 1211",
-    "PROFESSOR_LIST": ["Miguel Angel López Mariño"]
+    "PROFESSOR_LIST": ["Miguel Angel López Mariño"],
+    "MAIL_LIST": ["malm@tec.mx"]
   },
   {
     "CRN": "9524",
@@ -93,7 +100,8 @@
     "START_DATE": "Sep 19 2022",
     "END_DATE": "Dec 2 2022",
     "CLASSROOM": "E-ED01 1211",
-    "PROFESSOR_LIST": ["Gabriela Ivette García Ortiz"]
+    "PROFESSOR_LIST": ["Gabriela Ivette García Ortiz"],
+    "MAIL_LIST": ["gabyivette@tec.mx"]
   },
   {
     "CRN": "5364",
@@ -105,7 +113,8 @@
     "START_DATE": "Oct 24 2022",
     "END_DATE": "Oct 28 2022",
     "CLASSROOM": "E-ED01 1102",
-    "PROFESSOR_LIST": ["Erika Juárez Barco"]
+    "PROFESSOR_LIST": ["Erika Juárez Barco"],
+    "MAIL_LIST": ["erikabarco@tec.mx"]
   },
   {
     "CRN": "5302",
@@ -117,7 +126,8 @@
     "START_DATE": "Oct 31 2022",
     "END_DATE": "Dec 2 2022",
     "CLASSROOM": "E-ED01 1211",
-    "PROFESSOR_LIST": ["Miguel Angel López Mariño"]
+    "PROFESSOR_LIST": ["Miguel Angel López Mariño"],
+    "MAIL_LIST": ["malm@tec.mx"]
   },
   {
     "CRN": "5357",
@@ -129,6 +139,7 @@
     "START_DATE": "Oct 31 2022",
     "END_DATE": "Dec 2 2022",
     "CLASSROOM": "E-ED01 1223",
-    "PROFESSOR_LIST": ["Carlos Augusto Ventura Molina"]
+    "PROFESSOR_LIST": ["Carlos Augusto Ventura Molina"],
+    "MAIL_LIST": ["ventura@tec.mx"]
   }
 ]
