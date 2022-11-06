@@ -29,6 +29,9 @@ export default function Home(props) {
     setVals(filter(materias,e))
   }
   
+  vals.sort(function(a, b) {
+    return parseFloat(a.START_TIME.split(":")[0]) - parseFloat(b.START_TIME.split(":")[0]);
+  });
   
   const cards = vals.map((val) =>
     <CardUser obj={val}></CardUser>
