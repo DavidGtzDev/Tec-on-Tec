@@ -6,6 +6,7 @@ import Login from './views/Login';
 
 
 
+
 const firebaseConfig = {
   apiKey: "AIzaSyDPLFR9IrJObMp8ltBsqjatf2g5LO7fPsw",
   authDomain: "tec-on-tec.firebaseapp.com",

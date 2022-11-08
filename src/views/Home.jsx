@@ -3,13 +3,13 @@ import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import CardUser from '../components/CardUser';
 import Topbar from '../components/Topbar';
-import materias from "../data/materias.json" 
 import filter from '../scripts/filter';
 
 export default function Home(props) {
   const alumnoSesion = props.user["email"].split("@")[0]
   const [value, onChange] = useState(new Date());
-  const [vals, setVals] = useState(filter(materias,value))
+  const [vals, setVals] = useState()
+  const [data, setData] = useState()
   let cards
 
   const consumeAPI = async() => {
@@ -17,6 +17,7 @@ export default function Home(props) {
     const response = await fetch(url)
     const json = await response.json()
     setVals(filter(json,value))
+    setData(json)
   }
 
   useEffect(() => {
@@ -26,7 +27,7 @@ export default function Home(props) {
 
   function handleCalendarChange(e){
     onChange(e)
-    setVals(filter(materias,e))
+    setVals(filter(data,e))
   }
   
   if(typeof(vals) != "undefined"){

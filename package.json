@@ -22,7 +22,8 @@
     "react": "^18.2.0",
     "react-calendar": "^3.9.0",
     "react-dom": "^18.2.0",
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": "^1.8.1",
+    "write-json-file": "^5.0.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.17",
