@@ -40,11 +40,7 @@ export default function CardUser(props) {
           <Typography>
             Clave: {props.obj["CODE"]} <br></br>
             Salón: {props.obj["CLASSROOM"]} <br></br>
-            <div>
             Profesor: {props.obj["PROFESSOR_LIST"][0]} <br></br>
-            Contacto:  
-            <a href = {"mailto:" + props.obj["MAIL_LIST"][0]}> {props.obj["MAIL_LIST"][0]}</a>
-            </div>
           </Typography>
         </AccordionDetails>
       </Accordion>

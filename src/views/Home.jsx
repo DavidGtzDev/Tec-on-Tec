@@ -8,20 +8,20 @@ import filter from '../scripts/filter';
 
 export default function Home(props) {
   const alumnoSesion = props.user["email"].split("@")[0]
-
   const [value, onChange] = useState(new Date());
   const [vals, setVals] = useState(filter(materias,value))
+  let cards
 
   const consumeAPI = async() => {
     let url = "https://tec-on-tec.herokuapp.com/api/v1/courses/by-semester?user_id=" + alumnoSesion
     const response = await fetch(url)
     const json = await response.json()
-   console.log(json)
+    setVals(filter(json,value))
   }
 
   useEffect(() => {
     consumeAPI()
-  })
+  },[])
   
 
   function handleCalendarChange(e){
@@ -29,13 +29,18 @@ export default function Home(props) {
     setVals(filter(materias,e))
   }
   
-  vals.sort(function(a, b) {
-    return parseFloat(a.START_TIME.split(":")[0]) - parseFloat(b.START_TIME.split(":")[0]);
-  });
+  if(typeof(vals) != "undefined"){
+    vals.sort(function(a, b) {
+      return parseFloat(a.START_TIME.split(":")[0]) - parseFloat(b.START_TIME.split(":")[0]);
+    });
+  }
   
-  const cards = vals.map((val) =>
-    <CardUser obj={val}></CardUser>
-  );
+  if(typeof(vals) != "undefined"){
+    cards = vals.map((val) =>
+      <CardUser obj={val}></CardUser>
+    );
+  }
+  
 
 
   return (
