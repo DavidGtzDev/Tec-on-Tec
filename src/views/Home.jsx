@@ -51,9 +51,24 @@ export default function Home(props) {
         <h1 className='title-home'>Bienvenido {props.user["displayName"].split(" ")[0]}</h1>
       </div>
       */} 
-      <Calendar onChange={handleCalendarChange} value={value} calendarType={"US"} minDetail={"month"} nextLabel={<i class="bi bi-arrow-right"></i>} prevLabel={<i class="bi bi-arrow-left"></i>} next2Label={null} prev2Label={null} />
-      <div className='c-container'>
-        {cards}
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12 col-md-5 order-1 p-4">
+            <h2>Bienvenido, {props.user["displayName"].split(" ")[0]}</h2>
+          </div>
+
+          <div class="col-12 col-md-7 order-3 order-md-2 pt-4">
+            <h2>Tus cursos</h2>
+          </div>
+
+          <div class="col-12 col-md-5 order-2 order-md-3 p-4 pt-1">
+            <Calendar onChange={handleCalendarChange} value={value} calendarType={"US"} minDetail={"month"} nextLabel={<i class="bi bi-arrow-right"></i>} prevLabel={<i class="bi bi-arrow-left"></i>} next2Label={null} prev2Label={null} />
+          </div>
+
+          <div class="col-12 col-md-7 order-4">
+            {cards}
+          </div>
+        </div>
       </div>
     </div>
   )
