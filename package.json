@@ -13,7 +13,7 @@
     "@emotion/styled": "^11.10.5",
     "@google-cloud/local-auth": "^2.1.0",
     "@mui/icons-material": "^5.10.9",
-    "@mui/material": "^5.10.12",
+    "bootstrap": "^5.2.2",
     "firebase": "^9.12.1",
     "firebaseui": "^6.0.1",
     "google-spreadsheet": "^3.3.0",
@@ -22,8 +22,7 @@
     "react": "^18.2.0",
     "react-calendar": "^3.9.0",
     "react-dom": "^18.2.0",
-    "slick-carousel": "^1.8.1",
-    "write-json-file": "^5.0.0"
+    "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
     "@types/react": "^18.0.17",

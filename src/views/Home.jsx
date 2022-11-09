@@ -3,21 +3,22 @@ import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import CardUser from '../components/CardUser';
 import Topbar from '../components/Topbar';
+import EmptyMsg from '../components/EmptyMsg'; 
+import materias from "../data/materias.json" 
 import filter from '../scripts/filter';
 
 export default function Home(props) {
   const alumnoSesion = props.user["email"].split("@")[0]
   const [value, onChange] = useState(new Date());
-  const [vals, setVals] = useState()
-  const [data, setData] = useState()
+  const [vals, setVals] = useState(filter(materias,value))
   let cards
+  let emptyMsg; 
 
   const consumeAPI = async() => {
     let url = "https://tec-on-tec.herokuapp.com/api/v1/courses/by-semester?user_id=" + alumnoSesion
     const response = await fetch(url)
     const json = await response.json()
     setVals(filter(json,value))
-    setData(json)
   }
 
   useEffect(() => {
@@ -27,7 +28,7 @@ export default function Home(props) {
 
   function handleCalendarChange(e){
     onChange(e)
-    setVals(filter(data,e))
+    setVals(filter(materias,e))
   }
   
   if(typeof(vals) != "undefined"){
@@ -40,8 +41,11 @@ export default function Home(props) {
     cards = vals.map((val) =>
       <CardUser obj={val}></CardUser>
     );
+
+    emptyMsg = <EmptyMsg show={cards.length == 0}></EmptyMsg>
   }
   
+
 
 
   return (
@@ -52,9 +56,25 @@ export default function Home(props) {
         <h1 className='title-home'>Bienvenido {props.user["displayName"].split(" ")[0]}</h1>
       </div>
       */} 
-      <Calendar onChange={handleCalendarChange} value={value} />
-      <div className='c-container'>
-        {cards}
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12 col-md-5 order-1 p-4">
+            <h2>Bienvenido, {props.user["displayName"].split(" ")[0]}</h2>
+          </div>
+
+          <div class="col-12 col-md-7 order-3 order-md-2 pt-4">
+            <h2>Tus cursos</h2>
+          </div>
+
+          <div class="col-12 col-md-5 order-2 order-md-3 p-4 pt-1">
+            <Calendar onChange={handleCalendarChange} value={value} calendarType={"US"} minDetail={"month"} nextLabel={<i class="bi bi-arrow-right"></i>} prevLabel={<i class="bi bi-arrow-left"></i>} next2Label={null} prev2Label={null} />
+          </div>
+
+          <div class="col-12 col-md-7 order-4">
+            {cards}
+            {emptyMsg}
+          </div>
+        </div>
       </div>
     </div>
   )
