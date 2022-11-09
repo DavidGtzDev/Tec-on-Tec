@@ -52,7 +52,7 @@ export default function Home(props) {
         <h1 className='title-home'>Bienvenido {props.user["displayName"].split(" ")[0]}</h1>
       </div>
       */} 
-      <Calendar onChange={handleCalendarChange} value={value} />
+      <Calendar onChange={handleCalendarChange} value={value} calendarType={"US"} minDetail={"month"} nextLabel={<i class="bi bi-arrow-right"></i>} prevLabel={<i class="bi bi-arrow-left"></i>} next2Label={null} prev2Label={null} />
       <div className='c-container'>
         {cards}
       </div>
