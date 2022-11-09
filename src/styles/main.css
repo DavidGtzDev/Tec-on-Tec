@@ -71,11 +71,9 @@ body{
   }
 
   .react-calendar__tile {
-    border-radius: 4%;
+    border-radius: 8%;
     background: none;
-    padding: 25px;
-    margin-left: 10px;
-    text-align: center;
+    padding: 18px;
     /* - */
   }
 

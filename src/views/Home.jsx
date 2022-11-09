@@ -3,6 +3,7 @@ import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import CardUser from '../components/CardUser';
 import Topbar from '../components/Topbar';
+import EmptyMsg from '../components/EmptyMsg'; 
 import materias from "../data/materias.json" 
 import filter from '../scripts/filter';
 
@@ -11,6 +12,7 @@ export default function Home(props) {
   const [value, onChange] = useState(new Date());
   const [vals, setVals] = useState(filter(materias,value))
   let cards
+  let emptyMsg; 
 
   const consumeAPI = async() => {
     let url = "https://tec-on-tec.herokuapp.com/api/v1/courses/by-semester?user_id=" + alumnoSesion
@@ -39,8 +41,11 @@ export default function Home(props) {
     cards = vals.map((val) =>
       <CardUser obj={val}></CardUser>
     );
+
+    emptyMsg = <EmptyMsg show={cards.length == 0}></EmptyMsg>
   }
   
+
 
 
   return (
@@ -67,6 +72,7 @@ export default function Home(props) {
 
           <div class="col-12 col-md-7 order-4">
             {cards}
+            {emptyMsg}
           </div>
         </div>
       </div>
