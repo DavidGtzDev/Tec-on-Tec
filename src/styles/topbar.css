@@ -1,15 +1,12 @@
-.topbar{
+/* .topbar{
     width: 100vw;
     height: 50px;
     background-color: #2146C7;
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
+} */
 
-.profile_picture{
-    width: 8vw;
-    height: 8vw;
-    margin-left: 10px;
-    border-radius: 30px;
-}
+/* .profile_picture{
+    height: max-content;
+} */
