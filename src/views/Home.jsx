@@ -5,6 +5,7 @@ import CardUser from '../components/CardUser';
 import Topbar from '../components/Topbar';
 import EmptyMsg from '../components/EmptyMsg'; 
 import filter from '../scripts/filter';
+import Alumnos from './Alumnos';
 
 export default function Home(props) {
   const alumnoSesion = props.user["email"].split("@")[0]
@@ -18,7 +19,7 @@ export default function Home(props) {
   let emptyMsg; 
 
   const consumeAPI = async() => {
-    let url = "https://tec-on-tec.herokuapp.com/api/v1/courses/by-semester?user_id=" + alumnoSesion
+    let url = "https://tec-on-tec.herokuapp.com/api/v2/tmp-courses/by-semester?user_id=" + alumnoSesion
     const response = await fetch(url)
     const json = await response.json()
     setRole(json.shift())
@@ -33,7 +34,11 @@ export default function Home(props) {
 
   function handleCalendarChange(e){
     onChange(e)
-    setVals(filter(data,e))
+    try{
+      setVals(filter(data,e))
+    }catch(error){
+      console.log(error)
+    }
   }
   
   if(typeof(vals) != "undefined"){
@@ -81,7 +86,7 @@ export default function Home(props) {
       <div className='home'>
         <Topbar url={props.url} auth={props.auth} role={role} setAlumnlist={setAlumnlist} alumnlist={alumnlist}></Topbar>
         <div class="container-fluid">
-          
+          <Alumnos crn={data}></Alumnos>
         </div>
       </div>
     )

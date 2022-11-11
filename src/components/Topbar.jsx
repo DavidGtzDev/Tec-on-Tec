@@ -17,10 +17,10 @@ export default function Topbar(props) {
   }
 
   if(typeof(props.role) != "undefined"){
-    if(props.role["user_role"] == "Estudiante"){
+    if(props.role["user_role"] == "Docente"){
       view = <button type="button" class="btn btn-dark rounded float-end" onClick={e => handleListaDeAlumnos(e)}>Mis Alumnos</button>
       //view = <></>
-    }else if(props.role["user_role"] == "Profesor"){
+    }else if(props.role["user_role"] == "Estudiante"){
 
     }
   }
