@@ -40,6 +40,9 @@ export default function CardUser(props) {
          <Typography variant="body2" color="text.secondary">
            {props.obj["START_TIME"]} - {props.obj["END_TIME"]}
          </Typography>
+         <Typography variant="body2" color="text.secondary">
+          Salón: {props.obj["CLASSROOM"]}
+         </Typography>
        </CardContent>
        <Accordion>
        <AccordionSummary
@@ -52,7 +55,6 @@ export default function CardUser(props) {
          <AccordionDetails>
            <Typography>
              Clave: {props.obj["CODE"]} <br></br>
-             Salón: {props.obj["CLASSROOM"]} <br></br>
              Profesor: {props.obj["PROFESSOR_LIST"][0]} <br></br>
            </Typography>
          </AccordionDetails>
