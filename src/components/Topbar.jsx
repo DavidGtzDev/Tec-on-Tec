@@ -15,12 +15,12 @@ export default function Topbar(props) {
       props.setAlumnlist(false)
     }
   }
-
+  
   if(typeof(props.role) != "undefined"){
-    if(props.role["user_role"] == "Docente"){
+    if(props.role == "Docente"){
       view = <button type="button" class="btn btn-dark rounded float-end" onClick={e => handleListaDeAlumnos(e)}>Mis Alumnos</button>
       //view = <></>
-    }else if(props.role["user_role"] == "Estudiante"){
+    }else if(props.role == "Estudante"){
 
     }
   }

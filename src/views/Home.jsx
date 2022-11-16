@@ -8,7 +8,7 @@ import filter from '../scripts/filter';
 import Alumnos from './Alumnos';
 
 export default function Home(props) {
-  const alumnoSesion = props.user["email"].split("@")[0]
+  const alumnoSesion = props.user["email"]
   const [value, onChange] = useState(new Date());
   const [vals, setVals] = useState()
   const [data, setData] = useState()
@@ -19,12 +19,13 @@ export default function Home(props) {
   let emptyMsg; 
 
   const consumeAPI = async() => {
-    let url = "https://tec-on-tec.herokuapp.com/api/v2/tmp-courses/by-semester?user_id=" + alumnoSesion
+    let url = "https://tec-on-tec.herokuapp.com/api/v2/tmp-courses/by-semester?user_email=" + alumnoSesion
     const response = await fetch(url)
     const json = await response.json()
-    setRole(json.shift())
-    setVals(filter(json,value))
-    setData(json)
+    console.log(json)
+    setRole(json["USER_ROLE"])
+    setVals(filter(json["COURSES"],value))
+    setData(json["COURSES"])
   }
 
   useEffect(() => {
