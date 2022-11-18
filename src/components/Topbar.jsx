@@ -30,8 +30,8 @@ export default function Topbar(props) {
     <button type="button" class="btn btn-dark rounded float-end" onClick={e => signOut(props.auth)}>
       <i class="bi bi-box-arrow-right fs-4"></i>
     </button>
-    <button type="button" class="btn btn-dark rounded float-end">
-      <img src={props.url} alt={"P"} height="35rem" class="rounded-circle profile_picture" onClick={e => signInWithPopup(props.auth, new GoogleAuthProvider())}></img>
+    <button disabled type="button" class="btn btn-dark rounded float-end fs-5">
+      <img src={props.url} alt={"P"} height="35rem" class="rounded-circle profile_picture"></img>
     </button>
     <div>
     {view}
