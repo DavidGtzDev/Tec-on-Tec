@@ -43,22 +43,13 @@ export default function CardUser(props) {
          <Typography variant="body2" color="text.secondary">
           Salón: {props.obj["CLASSROOM"]}
          </Typography>
+         <Typography variant="body2" color="text.secondary">
+         Clave: {props.obj["CODE"]} <br></br>
+         </Typography>
+         <Typography variant="body2" color="text.secondary">
+         Profesor: {props.obj["PROFESSOR_LIST"][0]} <br></br>
+         </Typography>
        </CardContent>
-       <Accordion>
-       <AccordionSummary
-           expandIcon={<ExpandMoreIcon />}
-           aria-controls="panel1a-content"
-           id="panel1a-header"
-       >
-         <Typography>Detalles</Typography>
-         </AccordionSummary>
-         <AccordionDetails>
-           <Typography>
-             Clave: {props.obj["CODE"]} <br></br>
-             Profesor: {props.obj["PROFESSOR_LIST"][0]} <br></br>
-           </Typography>
-         </AccordionDetails>
-       </Accordion>
      </Card>
     
   )

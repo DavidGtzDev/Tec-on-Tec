@@ -6,8 +6,10 @@ import Topbar from '../components/Topbar';
 import EmptyMsg from '../components/EmptyMsg'; 
 import filter from '../scripts/filter';
 import Alumnos from './Alumnos';
+import dt from "../../data/demo.json"
 
 export default function Home(props) {
+  //const alumnoSesion = "j.ramirez@tec.mx"
   const alumnoSesion = props.user["email"]
   const [value, onChange] = useState(new Date());
   const [vals, setVals] = useState()
@@ -18,6 +20,7 @@ export default function Home(props) {
   let cards
   let emptyMsg; 
 
+  
   const consumeAPI = async() => {
     let url = "https://tec-on-tec.herokuapp.com/api/v2/tmp-courses/by-semester?user_email=" + alumnoSesion
     const response = await fetch(url)
@@ -27,9 +30,15 @@ export default function Home(props) {
     setVals(filter(json["COURSES"],value))
     setData(json["COURSES"])
   }
+  
+
+
 
   useEffect(() => {
     consumeAPI()
+    //setRole(dt["USER_ROLE"])
+    //setVals(filter(dt["COURSES"],value))
+    //setData(dt["COURSES"])
   },[])
 
 
@@ -110,3 +119,4 @@ export default function Home(props) {
 //Wed Oct 19 2022 00:00:00 GMT-0600 (hora de verano del Pacífico de México)
 //Thu Oct 20 2022 00:00:00 GMT-0600 (hora de verano del Pacífico de México)
 //Fri Oct 21 2022 00:00:00 GMT-0600 (hora de verano del Pacífico de México)
+

@@ -100,6 +100,23 @@ export default function filter(arr,date){
     }
     newArr = temp
     temp = []
+    
+
+    if(typeof(newArr.find(el => el.TYPE === "S6")) != "undefined" || typeof(newArr.find(el => el.TYPE === "S12")) != "undefined" || typeof(newArr.find(el => el.TYPE === "S18")) != "undefined"){
+        console.log("AAAA")
+        for(let z = 0; z< newArr.length; z++){
+            if(newArr[z]["TYPE"] == "Regular"){
+                //pass
+            }else{
+                temp.push(newArr[z])
+            }
+        }
+        newArr = temp
+        temp = []  
+    }
+    
+    
 
     return newArr
 }
+

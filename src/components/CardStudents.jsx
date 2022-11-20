@@ -10,7 +10,6 @@ export default function CardStudents(props) {
                 <div style={{display:"flex",width:"100vw",justifyContent:"space-around", flexWrap: "wrap"}}>
                     <p>Matricula: {props.obj["USER_ID"]}</p>
                     <p>Nombre: {props.obj["USER_NAME"]}</p>
-                    <p>CRN del Curso: {props.obj["COURSE_CRN"]}</p>
                 </div>
             </Typography>
         </CardContent>
