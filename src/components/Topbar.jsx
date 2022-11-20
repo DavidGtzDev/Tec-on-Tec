@@ -18,7 +18,7 @@ export default function Topbar(props) {
   
   if(typeof(props.role) != "undefined"){
     if(props.role == "Docente"){
-      view = <button type="button" class="btn btn-dark rounded float-end" onClick={e => handleListaDeAlumnos(e)}>Mis Alumnos</button>
+      view = <button type="button" className="btn btn-dark rounded float-end" onClick={e => handleListaDeAlumnos(e)}>Mis Alumnos</button>
       //view = <></>
     }else if(props.role == "Estudante"){
 
@@ -26,12 +26,12 @@ export default function Topbar(props) {
   }
 
   return(
-    <div class="container-fluid bg-dark text-center">
-    <button type="button" class="btn btn-dark rounded float-end" onClick={e => signOut(props.auth)}>
-      <i class="bi bi-box-arrow-right fs-4"></i>
+    <div className="container-fluid bg-dark text-center">
+    <button type="button" className="btn btn-dark rounded float-end" onClick={e => signOut(props.auth)}>
+      <i className="bi bi-box-arrow-right fs-4"></i>
     </button>
-    <button type="button" class="btn btn-dark rounded float-end">
-      <img src={props.url} alt={"P"} height="35rem" class="rounded-circle profile_picture"></img>
+    <button type="button" className="btn btn-dark rounded float-end">
+      <img src={props.url} alt={"P"} height="35rem" className="rounded-circle profile_picture"></img>
     </button>
     <div>
     {view}

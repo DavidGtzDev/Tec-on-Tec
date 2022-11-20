@@ -77,6 +77,7 @@ export default function filter(arr,date){
     temp = []
     
     
+    
     //Quedarte solo con las materias que estén en el rango de días (dentro del mes seleccionado, ver si la materia termina ese mes)
     //SE PASA POR UNA SEMANA
     for(let k = 0; k< newArr.length; k++){
@@ -86,11 +87,18 @@ export default function filter(arr,date){
         let endDay = newArr[k]["END_DATE"].split(" ")[1]
 
         if(monthNum == monthStart){
-            if(parseInt(date.toString().split(" ")[2]) >= startDay){
-                temp.push(newArr[k])
+            if(newArr[k]["TYPE"] == "Regular"){
+                if(parseInt(date.toString().split(" ")[2]) >= parseInt(startDay)){
+                    temp.push(newArr[k])
+                }
+            }else{
+                if(parseInt(date.toString().split(" ")[2]) >= parseInt(startDay) & parseInt(date.toString().split(" ")[2]) <= parseInt(endDay)){
+                    temp.push(newArr[k])
+                }
             }
+            
         }else if(monthNum == monthEnd){
-            if(parseInt(date.toString().split(" ")[2]) <= endDay){
+            if(parseInt(date.toString().split(" ")[2]) <= parseInt(endDay)){
                 temp.push(newArr[k])
             }
         }else{
@@ -103,7 +111,6 @@ export default function filter(arr,date){
     
 
     if(typeof(newArr.find(el => el.TYPE === "S6")) != "undefined" || typeof(newArr.find(el => el.TYPE === "S12")) != "undefined" || typeof(newArr.find(el => el.TYPE === "S18")) != "undefined"){
-        console.log("AAAA")
         for(let z = 0; z< newArr.length; z++){
             if(newArr[z]["TYPE"] == "Regular"){
                 //pass
