@@ -9,6 +9,9 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
  import "../styles/card.css"
 
 export default function CardUser(props) {
+  const str = props.obj["NAME"] + " || " + props.obj["CODE"] + " || " + props.obj["CRN"]
+  const length = 50;
+  const trimmed = str.substring(0, length) + "...";
   return (
     /*
     <div class="card mb-3">
@@ -35,16 +38,13 @@ export default function CardUser(props) {
        */}
        <CardContent>
          <Typography gutterBottom variant="h5" component="div">
-           {props.obj["NAME"]}
+            {trimmed}
          </Typography>
          <Typography variant="body2" color="text.secondary">
            {props.obj["START_TIME"]} - {props.obj["END_TIME"]}
          </Typography>
          <Typography variant="body2" color="text.secondary">
           Salón: {props.obj["CLASSROOM"]}
-         </Typography>
-         <Typography variant="body2" color="text.secondary">
-         Clave: {props.obj["CODE"]} <br></br>
          </Typography>
          <Typography variant="body2" color="text.secondary">
          Profesor: {props.obj["PROFESSOR_LIST"][0]} <br></br>

@@ -9,7 +9,7 @@ import Alumnos from './Alumnos';
 import dt from "../../data/demo.json"
 
 export default function Home(props) {
-  //const alumnoSesion = "j.ramirez@tec.mx"
+  //const alumnoSesion = "jorgevoo@tec.mx"
   const alumnoSesion = props.user["email"]
   const [value, onChange] = useState(new Date());
   const [vals, setVals] = useState()
