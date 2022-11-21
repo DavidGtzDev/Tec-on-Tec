@@ -7,6 +7,7 @@ import '/src/styles/css/style.css'
 
 export default function Login(props) {
   return (
+<<<<<<< HEAD
     <div className="form-login-body">
       <div className="container">
                 <div className="row">
@@ -38,6 +39,14 @@ export default function Login(props) {
                     </div>
                 </div>
             </div>
+=======
+    <div style={{display:"flex",flexDirection:"column", justifyContent:"center", alignItems:"center", height: "100vh", backgroundColor: "#212529"}}>
+        <img src="/TecOnTime.png" style={{height:150,marginBottom:20}}></img>
+        <Fab variant="extended" onClick={e => signInWithPopup(props.auth, new GoogleAuthProvider())}style={{width:"30vw"}} >
+        <img src='/2000px-Google_G_Logo.svg_.png' style={{height:30, marginRight:20}}></img>
+          Consulta tu horario
+        </Fab>
+>>>>>>> parent of 5b6271c (Hacer responsivo el boton sign in)
     </div>
   )
 }
