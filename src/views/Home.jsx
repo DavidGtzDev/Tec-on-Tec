@@ -6,8 +6,10 @@ import Topbar from '../components/Topbar';
 import EmptyMsg from '../components/EmptyMsg'; 
 import filter from '../scripts/filter';
 import Alumnos from './Alumnos';
+import dt from "../../data/demo.json"
 
 export default function Home(props) {
+  //const alumnoSesion = "jorgevoo@tec.mx"
   const alumnoSesion = props.user["email"]
   const [value, onChange] = useState(new Date());
   const [vals, setVals] = useState()
@@ -18,18 +20,24 @@ export default function Home(props) {
   let cards
   let emptyMsg; 
 
+  
   const consumeAPI = async() => {
     let url = "https://tec-on-tec.herokuapp.com/api/v2/tmp-courses/by-semester?user_email=" + alumnoSesion
     const response = await fetch(url)
     const json = await response.json()
-    console.log(json)
     setRole(json["USER_ROLE"])
     setVals(filter(json["COURSES"],value))
     setData(json["COURSES"])
   }
+  
+
+
 
   useEffect(() => {
     consumeAPI()
+    //setRole(dt["USER_ROLE"])
+    //setVals(filter(dt["COURSES"],value))
+    //setData(dt["COURSES"])
   },[])
 
 
@@ -60,21 +68,21 @@ export default function Home(props) {
     return (
       <div className='home'>
         <Topbar url={props.url} auth={props.auth} role={role} setAlumnlist={setAlumnlist}></Topbar>
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-12 col-md-5 order-1 p-4">
+        <div className="container-fluid">
+          <div className="row">
+            <div className="col-12 col-md-5 order-1 p-4">
               <h2>Bienvenido, {props.user["displayName"].split(" ")[0]}</h2>
             </div>
   
-            <div class="col-12 col-md-7 order-3 order-md-2 pt-4">
+            <div className="col-12 col-md-7 order-3 order-md-2 pt-4">
               <h2>Tus cursos</h2>
             </div>
   
-            <div class="col-12 col-md-5 order-2 order-md-3 p-4 pt-1">
-              <Calendar onChange={handleCalendarChange} value={value} calendarType={"US"} minDetail={"month"} nextLabel={<i class="bi bi-arrow-right"></i>} prevLabel={<i class="bi bi-arrow-left"></i>} next2Label={null} prev2Label={null} />
+            <div className="col-12 col-md-5 order-2 order-md-3 p-4 pt-1">
+              <Calendar onChange={handleCalendarChange} value={value} calendarType={"US"} minDetail={"month"} nextLabel={<i className="bi bi-arrow-right"></i>} prevLabel={<i className="bi bi-arrow-left"></i>} next2Label={null} prev2Label={null} />
             </div>
   
-            <div class="col-12 col-md-7 order-4">
+            <div className="col-12 col-md-7 order-4">
               {cards}
               {emptyMsg}
             </div>
@@ -86,7 +94,7 @@ export default function Home(props) {
     return(
       <div className='home'>
         <Topbar url={props.url} auth={props.auth} role={role} setAlumnlist={setAlumnlist} alumnlist={alumnlist}></Topbar>
-        <div class="container-fluid">
+        <div className="container-fluid">
           <Alumnos crn={data}></Alumnos>
         </div>
       </div>
@@ -110,3 +118,4 @@ export default function Home(props) {
 //Wed Oct 19 2022 00:00:00 GMT-0600 (hora de verano del Pacífico de México)
 //Thu Oct 20 2022 00:00:00 GMT-0600 (hora de verano del Pacífico de México)
 //Fri Oct 21 2022 00:00:00 GMT-0600 (hora de verano del Pacífico de México)
+

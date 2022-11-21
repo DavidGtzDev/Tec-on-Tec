@@ -6,9 +6,9 @@ export default function Topbar(props) {
   if(!props.show){return;}
 
   return (
-    <div class="text-center pt-5">
-        <i class="bi bi-journal-check msgIcon text-muted"></i>
-        <p class="fs-4 text-muted msgText">Nada por hoy</p>
+    <div className="text-center pt-5">
+        <i className="bi bi-journal-check msgIcon text-muted"></i>
+        <p className="fs-4 text-muted msgText">Nada por hoy</p>
     </div>
   )
 }

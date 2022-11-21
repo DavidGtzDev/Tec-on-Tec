@@ -13,7 +13,6 @@ export default function Alumnos(props) {
   const [cards, setCards] = useState(<></>)
   let options
 
-
   useEffect(() => {
     for(let i = 1; i < props.crn.length; i++){
       let c_temp = crns
@@ -49,7 +48,7 @@ export default function Alumnos(props) {
 
   if(crns != []){
     options = crns.map((val) => 
-      <MenuItem value={val}>{val}</MenuItem>
+      <MenuItem value={val}>{val} || {props.crn.find(o => o.CRN === val)["NAME"]} || {props.crn.find(o => o.CRN === val)["CODE"]}</MenuItem>
     )
   }
   
