@@ -18,7 +18,7 @@ export default function Topbar(props) {
   
   if(typeof(props.role) != "undefined"){
     if(props.role == "Docente"){
-      view = <> <button type="button" className="btn btn-dark rounded float-end" onClick={e => handleListaDeAlumnos(e)}>Mis Alumnos</button> <button type="button" className="btn btn-dark rounded float-end" onClick={e => handleRetorno(e)}>Calendario</button></>
+      view = <> <button type="button" className="btn btn-dark rounded float-end" onClick={e => handleListaDeAlumnos(e)}>Mis Cursos</button> <button type="button" className="btn btn-dark rounded float-end" onClick={e => handleRetorno(e)}>Calendario</button></>
       //view = <></>
     }else if(props.role == "Estudante"){
 

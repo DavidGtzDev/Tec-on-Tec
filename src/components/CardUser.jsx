@@ -9,7 +9,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
  import "../styles/card.css"
 
 export default function CardUser(props) {
-  const str = props.obj["NAME"] + " || " + props.obj["CODE"] + " || " + props.obj["CRN"]
+  const str = props.obj["CODE"] + " || " + props.obj["CRN"] + " || " + props.obj["NAME"]
   const length = 50;
   const trimmed = str.substring(0, length) + "...";
   return (
