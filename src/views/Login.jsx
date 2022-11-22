@@ -8,15 +8,7 @@ import "../styles/login.css";
 
 export default function Login(props) {
   return (
-    // <div style={{display:"flex",flexDirection:"column", justifyContent:"center", alignItems:"center", height: "100vh", backgroundColor: "#212529"}}>
-    //     <img src="/TecOnTime.png" style={{height:150,marginBottom:20}}></img>
-    //     <Fab variant="extended" onClick={e => signInWithPopup(props.auth, new GoogleAuthProvider())} >
-    //     <img src='/2000px-Google_G_Logo.svg_.png' style={{height:30, marginRight:20}}></img>
-    //       Consulta tu horario
-    //     </Fab>
-    // </div>
-
-    <div class="overflow-hidden vh-100 bg-dark">
+    <div class="overflow-hidden vh-100 h-100 bg-dark">
       <img src="/tec-instalaciones.jpg" class="img-fluid w-100 h-100 opacity-75 d-none d-md-inline position-absolute"></img>
       <div class="container-fluid container-md rounded my-0 my-md-5 mx-0 mx-md-auto overflow-hidden position-relative">
         <div class="row">
