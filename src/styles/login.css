@@ -1,0 +1,25 @@
+.login-body{
+    height: 100vh;
+}
+
+.bg-blue-midgray{
+    background: #37474f;
+}
+
+.bg-blue-fullgray{
+    background: #263238;
+}
+
+.h-60{
+    height: 60%;
+}
+
+.tec_logo{
+    width: 110px;
+    height: auto;
+}
+
+.illustration{
+    width: 300px;
+    height: auto;
+}
