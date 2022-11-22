@@ -42,8 +42,3 @@ export default function Login(props) {
     </div>
   )
 }
-
-/*
-<h1>Login</h1>
-<button onClick={e => signInWithPopup(props.auth, new GoogleAuthProvider())}>With Google</button>
-*/
