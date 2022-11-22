@@ -13,7 +13,6 @@ export default function Alumnos(props) {
   const [cards, setCards] = useState(<></>)
   let options
 
-
   useEffect(() => {
     for(let i = 1; i < props.crn.length; i++){
       let c_temp = crns
@@ -49,7 +48,7 @@ export default function Alumnos(props) {
 
   if(crns != []){
     options = crns.map((val) => 
-      <MenuItem value={val}>{val}</MenuItem>
+      <MenuItem value={val}>{props.crn.find(o => o.CRN === val)["CODE"]} || {val} || {props.crn.find(o => o.CRN === val)["NAME"]}</MenuItem>
     )
   }
   
@@ -77,12 +76,12 @@ export default function Alumnos(props) {
   return (
     <div>
       <FormControl fullWidth style={{marginTop:"20px"}}>
-        <InputLabel id="demo-simple-select-label">CRN</InputLabel>
+        <InputLabel id="demo-simple-select-label">Mis Cursos</InputLabel>
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
           value={select}
-          label="CRN"
+          label="Mis Cursos"
           onChange={e => handleChange(e)}
         >
           {options}

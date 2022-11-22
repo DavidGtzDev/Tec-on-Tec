@@ -7,18 +7,18 @@ export default function Topbar(props) {
   let control = false
 
   function handleListaDeAlumnos(e){
-    if(control == false){
-      control = true
-      props.setAlumnlist(true)
-    }else{
-      control = false
-      props.setAlumnlist(false)
-    }
+    control = true
+    props.setAlumnlist(true)
+  }
+
+  function handleRetorno(e){
+    control = false
+    props.setAlumnlist(false)
   }
   
   if(typeof(props.role) != "undefined"){
     if(props.role == "Docente"){
-      view = <button type="button" className="btn btn-dark rounded float-end" onClick={e => handleListaDeAlumnos(e)}>Mis Alumnos</button>
+      view = <> <button type="button" className="btn btn-dark rounded float-end" onClick={e => handleListaDeAlumnos(e)}>Mis Cursos</button> <button type="button" className="btn btn-dark rounded float-end" onClick={e => handleRetorno(e)}>Calendario</button></>
       //view = <></>
     }else if(props.role == "Estudante"){
 
