@@ -17,12 +17,13 @@ export default function Home(props) {
   const [role, setRole] = useState()
   const [alumnlist, setAlumnlist] = useState(false)
 
+  
   let cards
   let emptyMsg; 
 
   
   const consumeAPI = async() => {
-    let url = "https://tec-on-tec.herokuapp.com/api/v2/tmp-courses/by-semester?user_email=" + alumnoSesion
+    let url = "https://tec-on-tec.herokuapp.com/api/v1/courses/by-semester?user_email=" + alumnoSesion
     const response = await fetch(url)
     const json = await response.json()
     setRole(json["USER_ROLE"])
