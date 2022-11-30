@@ -1,4 +1,6 @@
 import React, { useState , useEffect} from 'react';
+import CircularProgress from '@mui/material/CircularProgress';
+import Box from '@mui/material/Box';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import CardUser from '../components/CardUser';
@@ -16,19 +18,21 @@ export default function Home(props) {
   const [data, setData] = useState()
   const [role, setRole] = useState()
   const [alumnlist, setAlumnlist] = useState(false)
+  const [apiIsLoading, setIsLoading] = useState(false)
 
-  
-  let cards
+  let cards;
   let emptyMsg; 
 
   
   const consumeAPI = async() => {
+    setIsLoading(true);
     let url = "https://tec-on-tec.herokuapp.com/api/v1/courses/by-semester?user_email=" + alumnoSesion
     const response = await fetch(url)
     const json = await response.json()
     setRole(json["USER_ROLE"])
     setVals(filter(json["COURSES"],value))
     setData(json["COURSES"])
+    setIsLoading(false); 
   }
   
 
@@ -66,31 +70,44 @@ export default function Home(props) {
   }
   
   if(alumnlist == false){
-    return (
-      <div className='home'>
+    if(apiIsLoading){
+      return (
+        <div className='home'>
         <Topbar url={props.url} auth={props.auth} role={role} setAlumnlist={setAlumnlist}></Topbar>
-        <div className="container-fluid">
-          <div className="row">
-            <div className="col-12 col-md-5 order-1 p-4">
-              <h2>Bienvenido, {props.user["displayName"].split(" ")[0]}</h2>
-            </div>
-  
-            <div className="col-12 col-md-7 order-3 order-md-2 pt-4">
-              <h2>Tus cursos</h2>
-            </div>
-  
-            <div className="col-12 col-md-5 order-2 order-md-3 p-4 pt-1">
-              <Calendar onChange={handleCalendarChange} value={value} calendarType={"US"} minDetail={"month"} nextLabel={<i className="bi bi-arrow-right"></i>} prevLabel={<i className="bi bi-arrow-left"></i>} next2Label={null} prev2Label={null} />
-            </div>
-  
-            <div className="col-12 col-md-7 order-4">
-              {cards}
-              {emptyMsg}
+        <div class="position-absolute top-50 start-50 translate-middle">
+          <CircularProgress />
+        </div>
+      </div>
+      )
+      
+    }
+    else{
+    return (
+        <div className='home'>
+          <Topbar url={props.url} auth={props.auth} role={role} setAlumnlist={setAlumnlist}></Topbar>
+          <div className="container-fluid">
+            <div className="row">
+              <div className="col-12 col-md-5 order-1 p-4">
+                <h2>Bienvenido, {props.user["displayName"].split(" ")[0]}</h2>
+              </div>
+    
+              <div className="col-12 col-md-7 order-3 order-md-2 p-4">
+                <h2>Tus cursos</h2>
+              </div>
+    
+              <div className="col-12 col-md-5 order-2 order-md-3 p-4 pt-1">
+                <Calendar onChange={handleCalendarChange} value={value} calendarType={"US"} minDetail={"month"} nextLabel={<i className="bi bi-arrow-right"></i>} prevLabel={<i className="bi bi-arrow-left"></i>} next2Label={null} prev2Label={null} />
+              </div>
+    
+              <div className="col-12 col-md-7 order-4 px-4">
+                {cards}
+                {emptyMsg}
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    )
+      )
+    }
   }else{
     return(
       <div className='home'>
@@ -105,6 +122,7 @@ export default function Home(props) {
 
   
 }
+
 
 //Agarrar todas las materias del alumno
 //Agarrar todas las materias que toquen ese día de la semana (Lunes, Martes, Miercoles...)
